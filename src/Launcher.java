@@ -11,10 +11,39 @@ public class Launcher {
 	
 		while (!line.equals("quit"))
 		{
-			System.out.println("Unknown command");	
+			if (line.equals("fibo"))
+			{
+				line = scanner.nextLine();
+				try {
+					int x = Integer.parseInt(line);
+					System.out.println("Fib(" + x + ") = " + fibo(x));
+				}
+				catch (NumberFormatException e) {
+					System.err.println("You must enter a number.");
+				}
+			}
+			else
+				System.out.println("Unknown command");	
 			line = scanner.nextLine();
 		}
 		System.exit(0);
+	}
+	
+	private static int fibo(int n)
+	{
+		int x = 0;
+		int y = 1;
+		boolean xt = true;
+		
+		for (int i = 2; i < n; ++i) {
+			if (xt)
+				x += y;
+			else
+				y += x;
+			xt = !xt;
+		}
+		
+		return x + y;
 	}
 	
 }
