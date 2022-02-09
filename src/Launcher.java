@@ -9,10 +9,12 @@ public class Launcher {
 		Scanner scanner = new Scanner(System.in);
 		String line = scanner.nextLine();
 	
-		if (line.equals("quit"))
-			System.exit(0);
-		
-		System.out.println("Unknown command");
+		while (!line.equals("quit"))
+		{
+			System.out.println("Unknown command");	
+			line = scanner.nextLine();
+		}
+		System.exit(0);
 	}
 	
 }
