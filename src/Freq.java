@@ -30,7 +30,7 @@ public class Freq implements Command {
 		}
 		return false;
 	}
-	public ArrayList<String> freq(String text)
+	public static ArrayList<String> freq(String text)
 	{
 		String[] words = text
 				.replaceAll("[^a-zA-Z -]", "")

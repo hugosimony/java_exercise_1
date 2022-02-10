@@ -13,7 +13,7 @@ public class Launcher {
 		List<Command> commands = new ArrayList<Command>();
 		commands.add(new Fibo());
 		commands.add(new Freq());
-		//commands.add(new Predict());
+		commands.add(new Predict());
 		commands.add(new Quit());
 		boolean unknown = true;
 		
