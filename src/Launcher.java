@@ -1,9 +1,13 @@
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Launcher {
 	
@@ -34,7 +38,7 @@ public class Launcher {
 				try {
 					Path path = Paths.get(line);
 					String msg = Files.readString(path);
-					System.out.println(msg);
+					freq(msg);
 					
 				} catch (Exception e) {
 					System.err.println("Unreadable file: " + e.getClass().getName() + " " + e.getMessage());					
@@ -63,6 +67,23 @@ public class Launcher {
 		}
 		
 		return x + y;
+	}
+	
+	private static void freq(String text)
+	{
+		String[] words = text
+				.replaceAll("[^a-zA-Z ]", "")
+				.toLowerCase()
+				.split(" ");
+		Stream<Entry<String, List<String>>> stream = Arrays
+				.stream(words).filter((str) -> !str.isBlank())
+				.collect(Collectors.groupingBy((str) -> str))
+				.entrySet()
+				.stream()
+				.sorted(Comparator.comparingInt((elt) -> - elt.getValue().size()))
+				.limit(3);
+		stream.forEach((str) -> System.out.print(str.getKey() + " "));
+		System.out.println();
 	}
 	
 }
