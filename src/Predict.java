@@ -17,6 +17,7 @@ public class Predict implements Command {
 		try {
 			Path path = Paths.get(line);
 			String msg = Files.readString(path);
+			System.out.println("Enter the word to start with:");
 			line = scanner.nextLine();
 			String[] words_ = msg
 					.replaceAll("[^a-zA-Z -]", "")
@@ -26,7 +27,7 @@ public class Predict implements Command {
 			for (int i = 0; i < words_.length; ++i)
 				words.add(words_[i]);
 			if (!words.contains(line))
-				System.err.println("The words you entered is not in the text");
+				System.err.println("The word you entered is not in the text");
 			else {
 				System.out.print(line + " ");
 				for (int i = 0; i < 19; ++i) {
