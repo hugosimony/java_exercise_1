@@ -9,7 +9,6 @@ public class Fibo implements Command {
 
 	@Override
 	public boolean run(Scanner scanner) {
-
 		System.out.println("Enter the index of the sequence:");
 		try {
 			int x = scanner.nextInt();

@@ -13,6 +13,7 @@ public class Predict implements Command {
 
 	@Override
 	public boolean run(Scanner scanner) {
+		System.out.println("Enter the path of the file:");
 		String line = scanner.nextLine();
 		try {
 			Path path = Paths.get(line);
