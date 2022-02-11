@@ -21,12 +21,13 @@ public class Predict implements Command {
 			System.out.println("Enter the word to start with:");
 			line = scanner.nextLine();
 			String[] words_ = msg
-					.replaceAll("[^a-zA-Z0-9 -]", "")
+					.replaceAll("[^a-zA-Z0-9 ]", "")
 					.toLowerCase()
 					.split(" ");
 			ArrayList<String> words = new ArrayList<String>();
 			for (int i = 0; i < words_.length; ++i)
 				words.add(words_[i]);
+			line = line.toLowerCase();
 			if (!words.contains(line))
 				System.err.println("The word you entered is not in the text");
 			else {
@@ -50,7 +51,7 @@ public class Predict implements Command {
 	{
 		ArrayList<String> possibilities = new ArrayList<String>();
 		String[] words = text
-				.replaceAll("[^a-zA-Z0-9 -]", "")
+				.replaceAll("[^a-zA-Z0-9 ]", "")
 				.toLowerCase()
 				.split(" ");
 		for (int i = 0; i < words.length - 1; ++i) {

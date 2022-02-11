@@ -34,7 +34,7 @@ public class Freq implements Command {
 	public static ArrayList<String> freq(String text)
 	{
 		String[] words = text
-				.replaceAll("[^a-zA-Z0-9 -]", "")
+				.replaceAll("[^a-zA-Z0-9 ]", "")
 				.toLowerCase()
 				.split(" ");
 		Stream<Entry<String, List<String>>> stream = Arrays
