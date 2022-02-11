@@ -10,14 +10,14 @@ public class Fibo implements Command {
 	@Override
 	public boolean run(Scanner scanner) {
 		
-		String line = scanner.nextLine();
 		try {
-			int x = Integer.parseInt(line);
-			System.out.println("Fib(" + x + ") = " + fibo(x));
+			int x = scanner.nextInt();
+			System.out.println(fibo(x));
 		}
-		catch (NumberFormatException e) {
+		catch (Exception e) {
 			System.err.println("You must enter a number.");
 		}
+		scanner.nextLine();
 		return false;
 	}
 	

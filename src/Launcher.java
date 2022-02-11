@@ -25,7 +25,10 @@ public class Launcher {
 				{
 					unknown = false;
 					if (cmd.run(scanner))
+					{
+						scanner.close();
 						System.exit(0);
+					}
 				}
 			}
 			if (unknown)
