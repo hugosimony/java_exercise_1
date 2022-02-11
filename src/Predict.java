@@ -21,7 +21,7 @@ public class Predict implements Command {
 			System.out.println("Enter the word to start with:");
 			line = scanner.nextLine();
 			String[] words_ = msg
-					.replaceAll("[^a-zA-Z -]", "")
+					.replaceAll("[^a-zA-Z0-9 -]", "")
 					.toLowerCase()
 					.split(" ");
 			ArrayList<String> words = new ArrayList<String>();
@@ -50,7 +50,7 @@ public class Predict implements Command {
 	{
 		ArrayList<String> possibilities = new ArrayList<String>();
 		String[] words = text
-				.replaceAll("[^a-zA-Z -]", "")
+				.replaceAll("[^a-zA-Z0-9 -]", "")
 				.toLowerCase()
 				.split(" ");
 		for (int i = 0; i < words.length - 1; ++i) {
